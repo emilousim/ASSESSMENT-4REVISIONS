@@ -3,10 +3,10 @@ const cors = require("cors");
 
 const app = express();
 
-
 app.use(cors());
+app.use(express.json()); 
 
-app.use(express.json()); // When we want to be able to accept JSON.
+// When we want to be able to accept JSON.
 
 app.get("/api/fortune", (req,res)=>{
   const Fortunes = ["A beautiful, smart, and loving person will be coming into your life", "A hunch is creativity trying to tell you something.", "A lifetime friend shall soon be made.", "A light heart carries you through all the hard times.", "A short pencil is usually better than a long memory any day.",];
