@@ -2,42 +2,21 @@
 <html>
   <head>
     <title>Back End Assessment</title>
+    <link rel="stylesheet" href="styles.css">
 </script>
   </head>
+  <center>
   <body class="container">
-
+    <h1>HELLO! WELCOME TO MY SUPER COOL INSPIRATIONAL WEBSITE</h1>
     <button id="complimentButton">Get a Compliment</button>
     <button id="fortuneButton">Get Your Fortune Here</button>
-
-    <br>
-    <br>
-
-<h2>Leave some words of encouragement</h2>
-
-<input type='text' id='user_input' />
-<input type="button" id="add" value="Leave Your Message">
-<ol id="list_item">
-</ol>
-<script>
-document.getElementById("add").onclick  = function() {
-
-  var node = document.createElement("Li");
-  var text = document.getElementById("user_input").value; 
-  var textnode=document.createTextNode(text);
-  node.appendChild(textnode);
-  document.getElementById("list_item").appendChild(node);
-}</script>
-
-    <br>
-<h2>IT'S NEVER TOO LATE TO GET BETTER</h2>
-    <input type="button" onclick="location.href='https://www.youtube.com/watch?v=sP5c-sPJUu0';" value="Encouragement" />
-    <input type="button" onclick="location.href= 'https://www.youtube.com/watch?v=0foQiAJ3uHg';" value="Ways to Make Personal Progress" />
-    <input type="button" onclick="location.href= 'https://www.youtube.com/watch?v=Zd1PRsMW8OE';" value= "Motivational Speeches" />
-  
-
+    <button id="inspoButton">Click Me for an Inspiriational Quote</button>
+    <button id="encourageButton">Get Your Encouragement Here</button>
+    <button id="jokeButton">A Joke to Make You Feel Better</button>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
+
       document.getElementById("complimentButton").onclick = function () {
         axios.get("http://localhost:4000/api/compliment/")
             .then(function (response) {
@@ -52,7 +31,30 @@ document.getElementById("add").onclick  = function() {
               alert(data);
             })
       };
+      document.getElementById("inspoButton").onclick = function () {
+        axios.get("http://localhost:4000/api/inspo/")
+            .then(function (response){
+              const data = response.data;
+              alert(data);
+            })
+      };
 
+      document.getElementById("encourageButton").onclick = function () {
+        axios.get("http://localhost:4000/api/encourage/")
+            .then(function (response){
+              const data = response.data;
+              alert(data);
+            })
+      };
+
+      document.getElementById("jokeButton").onclick = function () {
+        axios.get("http://localhost:4000/api/jokes/")
+            .then(function (response){
+              const data = response.data;
+              alert(data);
+            })
+      };
     </script>
   </body>
+</center>
 </html>
