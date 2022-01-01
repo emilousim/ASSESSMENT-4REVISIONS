@@ -1,13 +1,8 @@
 const express = require("express");
 const cors = require("cors");
-
 const app = express();
-
 app.use(cors());
-
 app.use(express.json()); 
-
-// When we want to be able to accept JSON.
 
 app.get("/api/fortune", (req,res)=>{
   const Fortunes = ["A beautiful, smart, and loving person will be coming into your life", "A hunch is creativity trying to tell you something.", "A lifetime friend shall soon be made.", "A light heart carries you through all the hard times.", "A short pencil is usually better than a long memory any day.",];
@@ -23,8 +18,6 @@ app.get("/api/compliment", (req, res) => {
 					 "Cool shirt!",
 					 "Your Javascript skills are stellar.",
   ];
-
-  // choose random compliment
   let randomIndex = Math.floor(Math.random() * compliments.length);
   let randomCompliment = compliments[randomIndex];
 
@@ -34,7 +27,6 @@ app.get("/api/compliment", (req, res) => {
 app.get("/api/inspo", (req, res) => {
   const inspirations = ["'When you have a dream, you’ve got to grab it and never let go - Carol Burnett", "The bad news is time flies. The good news is you’re the pilot. — Michael Altshuler", "Life has got all those twists and turns. You’ve got to hold on tight and off you go. — Nicole Kidman", "You make a choice: continue living your life feeling muddled in this abyss of self-misunderstanding, or you find your identity independent of it. You draw your own box. — Duchess Meghan"]
 
-  // choose random inspiration
   let inspoIndex = Math.floor(Math.random() * inspirations.length);
   let randomInspo = inspirations[inspoIndex];
 
